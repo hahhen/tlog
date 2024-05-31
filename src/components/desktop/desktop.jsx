@@ -35,7 +35,7 @@ export default async function Desktop() {
                 </Link>
                 <DesktopApp title="ABOUTME" icon={"/text.png"} size={40}>
                     <p>
-                    I'm 17 years old, a developer and currently studying Systems Development along with High School at the Etec of Praia Grande. After graduating, I plan on taking Computer Science. I'm proactive, creative and self-taught.
+                    I&apos;m 17 years old, a developer and currently studying Systems Development along with High School at the Etec of Praia Grande. After graduating, I plan on taking Computer Science. I&apos;m proactive, creative and self-taught.
                     </p>
                     <p>
                     In my free time, I enjoy to study, program and play videogames.
