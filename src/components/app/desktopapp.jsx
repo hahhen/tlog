@@ -9,7 +9,7 @@ import Image from "next/image"
 import Draggable from "react-draggable"
 import { cn } from "../../lib/utils"
 
-export default function DesktopApp({title, icon, size=50, children }) {
+export default function DesktopApp({slug, title, icon, size=50, children }) {
     return (
         <Dialog modal={false}>
             <DialogTrigger className={"flex gap-1 flex-col items-center"}>
@@ -18,10 +18,10 @@ export default function DesktopApp({title, icon, size=50, children }) {
                     {title}
                 </span>
             </DialogTrigger>
-            <Draggable handle={".header"+title}>
+            <Draggable defaultPosition={{x: -160, y: -200}} handle={".header"+slug}>
                 <DialogContent onPointerDownOutside={() => event.preventDefault()}>
                     <div>
-                        <header className={cn("appheader relative flex justify-center", "header"+title)}>
+                        <header className={cn("appheader relative flex justify-center", "header"+slug)}>
                             <span className="bg-white z-50 px-4 flex items-center select-none">{title}</span>
                         </header>
                         {children}
