@@ -2,32 +2,173 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.screen {
+  background: #fff url(/bg.png) 0 0 repeat;
+  box-shadow: 0 0 100px rgba(0, 0, 0, .7);
 }
 
-@media (prefers-color-scheme: dark) {
+.screen::after {
+  content: " ";
+  animation: flicker .15s infinite;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, .08);
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, .25) 50%), linear-gradient(90deg, rgba(255, 0, 0, .06), rgba(0, 255, 0, .02), rgba(0, 0, 255, .06));
+  background-size: 100% 2px, 3px 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.scrollbar{
+  background: url(/scrollbar-bg.png) 0 0 repeat;
+}
+
+.appheader::before {
+  background: #fff url(/header-bg.png) 0 50% repeat-x;
+  content: "";
+  display: block;
+  height: 16px;
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 0%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes flicker {
+  0% {
+    opacity: .1174;
+  }
+
+  5% {
+    opacity: .29168;
+  }
+
+  10% {
+    opacity: .18642;
+  }
+
+  15% {
+    opacity: .8546;
+  }
+
+  20% {
+    opacity: .53757;
+  }
+
+  25% {
+    opacity: .43149;
+  }
+
+  30% {
+    opacity: .93029;
+  }
+
+  35% {
+    opacity: .84422;
+  }
+
+  40% {
+    opacity: .9164;
+  }
+
+  45% {
+    opacity: .26239;
+  }
+
+  50% {
+    opacity: .22149;
+  }
+
+  55% {
+    opacity: .24262;
+  }
+
+  60% {
+    opacity: .22353;
+  }
+
+  65% {
+    opacity: .74954;
+  }
+
+  70% {
+    opacity: .73651;
+  }
+
+  75% {
+    opacity: .07305;
+  }
+
+  80% {
+    opacity: .1063;
+  }
+
+  85% {
+    opacity: .59895;
+  }
+
+  90% {
+    opacity: .34957;
+  }
+
+  95% {
+    opacity: .31456;
+  }
+
+  100% {
+    opacity: .146;
   }
 }
