@@ -15,6 +15,61 @@ import {
 import Logo from "@/components/gen/logo"
 import Link from "next/link"
 import { useEffect, useState } from "react";
+import i18next from "i18next";
+import { initReactI18next, useTranslation } from "react-i18next";
+
+i18next
+    .use(initReactI18next)
+    .init({
+        lng: "en",
+        resources: {
+            en: {
+                translation: {
+                    "about": "About",
+                    "language": "Language",
+                    "restart": "Restart",
+                    "systeminfo": "System Information",
+                    "os": "Operational System",
+                    "build": "Build Number",
+                    "file": "File",
+                    "share": "Share",
+                    "print": "Print",
+                    "open": "Open",
+                    "aboutmetext": "I&apos;m 17 years old, a developer and currently studying Systems Development along with High School at the Etec of Praia Grande. After graduating, I plan on taking Computer Science. I&apos;m proactive, creative and self-taught.\nIn my free time, I enjoy to study, program and play videogames.\nApart from programming, I have a particular interest in architecture, classical music and the japanese culture."
+                }
+            },
+            pt: {
+                translation: {
+                    "about": "Sobre",
+                    "language": "Idioma",
+                    "restart": "Reiniciar",
+                    "systeminfo": "Informações do Sistema",
+                    "os": "Sistema Operacional",
+                    "build": "Número da Build",
+                    "file": "Arquivo",
+                    "share": "Compartilhar",
+                    "print": "Imprimir",
+                    "open": "Abrir",
+                    "aboutmetext": "Possuo 17 anos, sou desenvolvedor e estou atualmente cursando Desenvolvimento de Sistemas na Etec de Praia Grande junto ao Ensino Médio. Após a conclusão, pretendo cursar Ciências da Computação. Sou proativo, criativo e autodidata.\nMeu passatempos são estudar, programar e jogar, às vezes.\nAlém da programação, possuo interesse em arquitetura, música clássica e cultura japonesa."
+                }
+            },
+            jp: {
+                translation: {
+                    "about": "アバウト",
+                    "language": "語",
+                    "restart": "再起動する",
+                    "systeminfo": "システムインフォメーション",
+                    "os": "運用システム",
+                    "build": "ビルド番号",
+                    "file": "ファイル",
+                    "share": "シェア",
+                    "print": "印刷する",
+                    "open": "開く",
+                    "aboutmetext": "I&apos;m 17 years old, a developer and currently studying Systems Development along with High School at the Etec of Praia Grande. After graduating, I plan on taking Computer Science. I&apos;m proactive, creative and self-taught.\nIn my free time, I enjoy to study, program and play videogames.\nApart from programming, I have a particular interest in architecture, classical music and the japanese culture."
+                }
+            }
+        }
+    })
 
 export default function Header() {
     const [time, setTime] = useState("")
@@ -36,49 +91,55 @@ export default function Header() {
         return () => clearInterval(interval)
     }, [time])
 
+    const { t } = useTranslation();
+
     return (
         <Menubar className='px-4 justify-between'>
             <div className="left flex">
                 <MenubarMenu>
                     <MenubarTrigger className="py-1.5"><Logo size={15} /></MenubarTrigger>
                     <MenubarContent>
-                        <MenubarItem>About</MenubarItem>
+                        <MenubarItem>{t('about')}</MenubarItem>
                         <MenubarSub>
-                            <MenubarSubTrigger>Language</MenubarSubTrigger>
+                            <MenubarSubTrigger className="h-7">{t('language')}</MenubarSubTrigger>
                             <MenubarSubContent>
-                                <MenubarItem>English</MenubarItem>
-                                <MenubarItem>Português</MenubarItem>
-                                <MenubarItem>日本語</MenubarItem>
+                                <MenubarItem onClick={() => i18next.changeLanguage("en")}>
+                                    English
+                                </MenubarItem>
+                                <MenubarItem onClick={() => i18next.changeLanguage("pt")}>
+                                    Português
+                                </MenubarItem>
+                                <MenubarItem onClick={() => i18next.changeLanguage("jp")}>
+                                    日本語
+                                </MenubarItem>
                             </MenubarSubContent>
                         </MenubarSub>
-                        <MenubarItem>Restart</MenubarItem>
+                        <MenubarItem>{t('restart')}</MenubarItem>
                         <div className="px-2 text-xs flex flex-col text-muted-foreground">
-                            <span>System information</span>
-                            <span>OS: ArthurOS 1.0</span>
-                            <span>Build number: 20070212AMP</span>
+                            <span>{t('systeminfo')}</span>
+                            <span>{t('os')}:&nbsp;ArthurOS 1.0</span>
+                            <span>{t('build')}: 20070212AMP</span>
                         </div>
                     </MenubarContent>
                 </MenubarMenu>
 
                 <MenubarMenu>
-                    <MenubarTrigger>File</MenubarTrigger>
+                    <MenubarTrigger>{t('file')}</MenubarTrigger>
                     <MenubarContent>
-                        <MenubarItem>
-                            New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                        </MenubarItem>
-                        <MenubarItem>New Window</MenubarItem>
-                        <MenubarItem>Share</MenubarItem>
-                        <MenubarItem>Print</MenubarItem>
+                        <MenubarItem>{t('share')}</MenubarItem>
+                        <MenubarItem>{t('print')}</MenubarItem>
                     </MenubarContent>
                 </MenubarMenu>
 
                 <MenubarMenu>
-                    <MenubarTrigger>Open</MenubarTrigger>
+                    <MenubarTrigger>{t('open')}</MenubarTrigger>
                     <MenubarContent>
-                        <MenubarItem><Link target="_blank" href={"https://www.linkedin.com/in/o-arthur"}>LinkedIn</Link></MenubarItem>
-                        <MenubarItem><Link target="_blank" href={"https://www.github.com/hahhen"}>GitHub</Link></MenubarItem>
-                        <MenubarItem>Share</MenubarItem>
-                        <MenubarItem>Print</MenubarItem>
+                        <MenubarItem asChild>
+                            <Link target="_blank" href={"https://www.linkedin.com/in/o-arthur"}>LinkedIn</Link>
+                        </MenubarItem>
+                        <MenubarItem asChild>
+                            <Link target="_blank" href={"https://www.github.com/hahhen"}>GitHub</Link>
+                        </MenubarItem>
                     </MenubarContent>
                 </MenubarMenu>
             </div>
