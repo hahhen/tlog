@@ -2,9 +2,13 @@ import Folder from '@/components/app/folder'
 import Link from 'next/link'
 import Image from 'next/image'
 import DesktopApp from '@/components/app/desktopapp'
-import { supabase } from '@/app/layout'
+import { cookies } from "next/headers";
+import { createClient } from '@/utils/supabase/server'
 
 export default async function Desktop() {
+    const cookieStore = cookies()
+    const supabase = createClient(cookieStore)
+
     let { data: album, error1 } = await supabase
         .from('album')
         .select('id, title, cover, slug, bgvideo')
