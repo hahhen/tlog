@@ -38,7 +38,7 @@ export default function Folder({ bgVideo, id, slug, items, title, cover, icon })
                                             <span className="bg-white z-50 px-4 flex items-center select-none">{item.title}</span>
                                         </header>
                                         <div className="flex p-3 flex-col items-center">
-                                            <Image src={cover} width={400} height={400}/>
+                                            {cover && <Image src={cover} width={400} height={400}/>}
                                             <ReactAudioPlayer
                                                 src={item.url}
                                                 autoPlay
