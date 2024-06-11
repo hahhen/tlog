@@ -18,6 +18,7 @@ import React from "react";
 import { setStateBgVideo } from "@/components/desktop/backgroundvideo";
 
 export default function Folder({ bgVideo, id, slug, items, title, cover, icon }) {
+    console.log('rendered')
     return (
         <DesktopApp id={id} slug={slug} title={title} icon={icon}>
             <ScrollArea className={"h-96"}>
@@ -26,12 +27,12 @@ export default function Folder({ bgVideo, id, slug, items, title, cover, icon })
                         <Dialog onOpenChange={(open) => {
                             open ? setStateBgVideo(bgVideo) : setStateBgVideo("")}} key={i} modal={false}>
                             <DialogTrigger className={"flex flex-col items-center"}>
-                                <Image src={"/sound.png"} width={40} height={40} />
+                                <Image alt="Song" src={"/sound.png"} width={40} height={40} />
                                 <span className="bg-white">
                                     {item.title}
                                 </span>
                             </DialogTrigger>
-                            <Draggable defaultPosition={{x: -160, y: -200}} handle={".header" + slug + item.id}>
+                            <Draggable defaultPosition={{x: -192, y: -200}} handle={".header" + slug + item.id}>
                                 <DialogContent onPointerDownOutside={() => event.preventDefault()}>
                                     <div>
                                         <header className={cn("appheader relative flex justify-center", "header" + slug + item.id)}>

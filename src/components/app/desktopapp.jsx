@@ -13,12 +13,12 @@ export default function DesktopApp({slug, title, icon, size=50, children }) {
     return (
         <Dialog modal={false}>
             <DialogTrigger className={"flex gap-1 flex-col items-center"}>
-                <Image src={icon} width={size} height={size} />
+                <Image alt="App" src={icon} width={size} height={size} />
                 <span className="bg-white">
                     {title}
                 </span>
             </DialogTrigger>
-            <Draggable defaultPosition={{x: -160, y: -200}} handle={".header"+slug}>
+            <Draggable defaultPosition={{x: -192, y: -200}} handle={".header"+slug}>
                 <DialogContent onPointerDownOutside={() => event.preventDefault()}>
                     <div>
                         <header className={cn("appheader relative flex justify-center", "header"+slug)}>
