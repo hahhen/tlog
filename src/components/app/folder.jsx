@@ -32,7 +32,7 @@ export default function Folder({ video, id, slug, items, title, cover, icon }) {
                     <div className="grid grid-cols-3 grid-flow-row gap-4">
                         {items.map((item, i) => (
                             <Dialog onOpenChange={(open) => {
-                                open ? setStateBgVideo(bgVideo) : setStateBgVideo("")
+                                open ? setStateBgVideo(video) : setStateBgVideo("")
                             }} key={i} modal={false}>
                                 <DialogTrigger className={"flex flex-col items-center"}>
                                     <Image alt="Song" src={"/sound.png"} width={40} height={40} />
