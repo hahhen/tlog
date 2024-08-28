@@ -5,8 +5,8 @@ import { cn } from "../lib/utils";
 const VT323f = VT323({ subsets: ["latin"], weight: '400' });
 
 export const metadata = {
-  title: "ArthurOS",
-  description: "Arthur's, aka Hahhen, personal website and portfolio.",
+  title: "TLOGOS",
+  description: "A website for r/TheLifeOfGAS music releases and more.",
 };
 
 export default function RootLayout({ children }) {
