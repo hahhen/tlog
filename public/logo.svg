@@ -1,3 +1,18 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" width="9" height="9">
-	<path id="Camada 1" class="s0" d="m0 9h2v-1h1v-2h1v-2h1v2h1v2h1v1h2v-3h-1v-2h-1v-2h-1v-2h-3v2h-1v2h-1v2h-1z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Forma_1" data-name="Forma 1" class="cls-1" d="M7,3H2V2H7V3Z"/>
+  <path id="Forma_2" data-name="Forma 2" class="cls-1" d="M7,1V2H8V4H9V1H7Z"/>
+  <path id="Forma_3" data-name="Forma 3" class="cls-1" d="M7,4V6H6V7H5V8H7V7H8V4H7Z"/>
+  <rect id="Forma_4" data-name="Forma 4" x="4" y="8" width="1" height="1"/>
+  <path id="Forma_5" data-name="Forma 5" class="cls-1" d="M4,7V8H2V7H1V4H2V6H3V7H4Z"/>
+  <path id="Forma_6" data-name="Forma 6" class="cls-1" d="M1,4H0V1H2V2H1V4Z"/>
+  <path id="Forma_7" data-name="Forma 7" class="cls-1" d="M2,3H7V2H2V3Z"/>
+  <path id="Forma_8" data-name="Forma 8" class="cls-1" d="M3,4V5H4V4H3Z"/>
+  <path id="Forma_9" data-name="Forma 9" class="cls-1" d="M5,4V5H6V4H5Z"/>
 </svg>

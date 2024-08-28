@@ -75,7 +75,7 @@ const MenubarContent = React.forwardRef((
       alignOffset={alignOffset}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 min-w-[12rem] -mt-1 overflow-hidden border bg-popover p-1 text-popover-foreground shadow-md",
+        "z-50 min-w-[12rem] -mt-1.5 overflow-hidden border bg-popover p-1 text-popover-foreground shadow-md",
         className
       )}
       {...props} />

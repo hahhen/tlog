@@ -41,7 +41,7 @@
 }
 
 .appheader::before {
-  background: #fff url(/header-bg.png) 0 50% repeat-x;
+  background: #F58B57 url(/header-bg.png) 0 50% repeat-x;
   content: "";
   display: block;
   height: 16px;
@@ -56,11 +56,12 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    --header-background: 20 89% 65%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
+    --popover: 20 89% 65%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --primary: 19 58% 52%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;

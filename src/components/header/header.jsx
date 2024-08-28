@@ -17,6 +17,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react";
 import i18next from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
+import DesktopApp from "../app/desktopapp";
 
 i18next
     .use(initReactI18next)
@@ -79,7 +80,7 @@ export default function Header() {
         if (currentDate.getHours() < 12) {
             setTime(currentDate.getHours() + ":" + (currentDate.getMinutes() < 10 ? '0' : '') + currentDate.getMinutes() + "AM")
         } else {
-            setTime((currentDate.getHours() - 12) + ":" + (currentDate.getMinutes() < 10 ? '0' : '') + currentDate.getMinutes() + "PM")
+            setTime((currentDate.getHours() > 13 ? (currentDate.getHours() - 12) : currentDate.getHours()) + ":" + (currentDate.getMinutes() < 10 ? '0' : '') + currentDate.getMinutes() + "PM")
         }
         setDate(currentDate.toDateString())
     }
@@ -94,20 +95,16 @@ export default function Header() {
     const { t } = useTranslation();
 
     return (
-        <Menubar className='px-4 justify-between'>
+        <Menubar className='px-4 justify-between bg-headerbg'>
             <div className="left flex">
                 <MenubarMenu>
-                    <MenubarTrigger className="py-1.5"><Logo size={15} /></MenubarTrigger>
+                    <MenubarTrigger className="py-1.5"><Logo size={20} /></MenubarTrigger>
                     <MenubarContent>
-                        <MenubarItem>{t('about')}</MenubarItem>
                         <MenubarSub>
                             <MenubarSubTrigger className="h-7">{t('language')}</MenubarSubTrigger>
                             <MenubarSubContent>
                                 <MenubarItem onClick={() => i18next.changeLanguage("en")}>
                                     English
-                                </MenubarItem>
-                                <MenubarItem onClick={() => i18next.changeLanguage("pt")}>
-                                    Português
                                 </MenubarItem>
                                 <MenubarItem onClick={() => i18next.changeLanguage("jp")}>
                                     日本語
@@ -117,8 +114,8 @@ export default function Header() {
                         <MenubarItem>{t('restart')}</MenubarItem>
                         <div className="px-2 text-xs flex flex-col text-muted-foreground">
                             <span>{t('systeminfo')}</span>
-                            <span>{t('os')}:&nbsp;ArthurOS 1.0</span>
-                            <span>{t('build')}: 20070212AMP</span>
+                            <span>{t('os')}:&nbsp;TLOGOS 1.0</span>
+                            <span>{t('build')}: 20240827</span>
                         </div>
                     </MenubarContent>
                 </MenubarMenu>
@@ -135,13 +132,24 @@ export default function Header() {
                     <MenubarTrigger>{t('open')}</MenubarTrigger>
                     <MenubarContent>
                         <MenubarItem asChild>
-                            <Link target="_blank" href={"https://www.linkedin.com/in/o-arthur"}>LinkedIn</Link>
+                            <Link target="_blank" href={"https://www.reddit.com/r/TheLifeOfGAS"}>Reddit</Link>
                         </MenubarItem>
                         <MenubarItem asChild>
-                            <Link target="_blank" href={"https://www.github.com/hahhen"}>GitHub</Link>
+                            <Link target="_blank" href={"http://discord.gg/GwmmnUtc6d"}>Discord</Link>
+                        </MenubarItem>
+                        <MenubarItem asChild>
+                            <Link target="_blank" href={"https://www.reddit.com/r/GoodAssSub"}>Reddit (GAS)</Link>
                         </MenubarItem>
                     </MenubarContent>
                 </MenubarMenu>
+
+                <DesktopApp className="text-xl justify-center px-3" slug="about" notitlebg title={t('about')}>
+                    <div className="p-4">
+                        <p>Developed by Hahhen for r/TheLifeOfGas</p>
+                        <p>Check out my <Link target="__blank" href={"https://www.github.com/hahhen"}>Github</Link> and <Link href={"https://www.linkedin.com/in/o-arthur"} target="__blank">LinkedIn</Link></p>
+                    </div>
+                </DesktopApp>
+
             </div>
             <div className="right text-xl select-none flex">
                 <span>{time}</span><span className="hidden sm:block">&nbsp;-&nbsp;{date}</span>
