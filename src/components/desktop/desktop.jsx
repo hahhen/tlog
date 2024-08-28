@@ -11,7 +11,7 @@ export default async function Desktop() {
 
     let { data: album, error1 } = await supabase
         .from('album')
-        .select('id, title, cover, slug, bgvideo')
+        .select('id, title, cover, slug, video')
     let { data: song, error2 } = await supabase
         .from('song')
         .select('id, title, albumid, url, track_number')
@@ -20,7 +20,7 @@ export default async function Desktop() {
         <div className="w-full p-2 flex justify-end">
             <div className="grid grid-rows-3 z-10 grid-flow-col gap-4">
                 {album.map((album) => (
-                    <Folder key={album.id} bgVideo={album.bgvideo} slug={album.slug} icon="/folder.png" cover={album.cover} items={song.filter(song => song.albumid == album.id)} title={album.title} />
+                    <Folder key={album.id} video={album.video} slug={album.slug} icon="/folder.png" cover={album.cover} items={song.filter(song => song.albumid == album.id)} title={album.title} />
                 ))}
             </div>
         </div>
