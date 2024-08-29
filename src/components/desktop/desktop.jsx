@@ -24,7 +24,7 @@ export default async function Desktop() {
                 ))}
                 <Link className='flex flex-col gap-1 items-center' target='_blank' href={"https://docs.google.com/spreadsheets/d/1wFj-7910YrbfznDPqTQ7qJqVrRRBUGgSlayCSaibw4Q/edit?gid=0#gid=0"}>
                     <Image src={"/text.png"} alt='App' width={40} height={40} />
-                    <span className="bg-bgheader">
+                    <span className="bg-headerbg">
                         TLOG TRACKER
                     </span>
                 </Link>
