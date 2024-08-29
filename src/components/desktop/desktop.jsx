@@ -22,6 +22,12 @@ export default async function Desktop() {
                 {album.map((album) => (
                     <Folder key={album.id} video={album.video} slug={album.slug} icon="/folder.png" cover={album.cover} items={song.filter(song => song.albumid == album.id)} title={album.title} />
                 ))}
+                <Link className='flex flex-col gap-1 items-center' target='_blank' href={"https://docs.google.com/spreadsheets/d/1wFj-7910YrbfznDPqTQ7qJqVrRRBUGgSlayCSaibw4Q/edit?gid=0#gid=0"}>
+                    <Image src={"/text.png"} alt='App' width={40} height={40} />
+                    <span className="bg-bgheader">
+                        TLOG TRACKER
+                    </span>
+                </Link>
             </div>
         </div>
     )
