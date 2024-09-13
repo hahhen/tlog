@@ -19,7 +19,6 @@ import { setStateBgVideo } from "@/components/desktop/backgroundvideo";
 import ReactPlayer from "react-player";
 
 export default function Folder({ video, id, slug, items, title, cover, icon }) {
-    console.log(video)
     return (
         <DesktopApp id={id} slug={slug} title={title} icon={icon}>
             <ScrollArea className={"h-96 p-2"}>
